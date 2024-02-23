@@ -3,6 +3,7 @@
     border-radius: 10px;
     padding: 25px;
     background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .content {
@@ -19,6 +20,7 @@
     border-radius: 17px;
     padding: 10px;
     margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 textarea {
@@ -30,16 +32,22 @@ textarea {
     padding: 10px;
     font-size: 17px;
     border: None;
+    max-height: 72px;
+    max-width: 500px;
+    min-width: 400px;
+    min-height: 50px;
 }
 
 button {
     background-color: rgba(0, 0, 0, 0.5);
-    height: 70px;
+    height: auto;
     border-radius: 0px 10px 10px 0px;
     color: white;
     border: None;
     cursor: pointer;
     transition: 500ms;
+    font-size: large;
+    min-width: 40px;
 }
 
 button:hover {
@@ -52,4 +60,5 @@ textarea::after {
 
 footer {
     display: flex;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
