@@ -1,0 +1,22 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #1A1A1D #950740;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #111;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #1A1A1D;
+    border-radius: 20px;
+    border: 3px solid #950740;
+}

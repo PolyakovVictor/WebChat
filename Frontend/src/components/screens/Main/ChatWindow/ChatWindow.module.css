@@ -1,0 +1,55 @@
+.chatWindow {
+    color: white;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.content {
+
+}
+
+.messages {
+    color: white;
+    font-size: large;
+}
+
+.msg{
+    background-color: rgba(0, 225, 255, 0.8);
+    border-radius: 17px;
+    padding: 10px;
+    margin: 10px;
+}
+
+textarea {
+    width: 450px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px 0px 0px 10px;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    border: None;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 70px;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+    border: None;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+button:hover {
+    background-color: rgba(0, 255, 255, 0.9);
+}
+
+textarea::after {
+    background-color: rgba(0, 255, 255, 0.9);
+}
+
+footer {
+    display: flex;
+}
