@@ -6,13 +6,12 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 
-app.add_middleware(
-  CORSMiddleware,
-  allow_origins=["http://localhost:5173"],  # Assuming your React app runs on port 3000
-  allow_credentials=True,
-  allow_methods=["GET", "POST", "PUT", "DELETE"],
-  allow_headers=["*"],
-)
+app.add_middleware(CORSMiddleware,
+                   allow_origins=["http://localhost:5173"],  # Assuming your React app runs on port 3000
+                   allow_credentials=True,
+                   allow_methods=["GET", "POST", "PUT", "DELETE"],
+                   allow_headers=["*"],
+                   )
 
 
 class ConnectionManager:
@@ -47,5 +46,5 @@ async def websocket_endpoint(websocket: WebSocket, client_id):
             await manager.send_personal_message(f"You wrote: {data}", websocket)
             await manager.broadcast(f"Client #{client_id} says: {data}")
     except WebSocketDisconnect:
-        await manager.broadcast(f"Client #{client_id} has left the chat")
         manager.disconnect(websocket)
+        await manager.broadcast(f"Client #{client_id} has left the chat")
