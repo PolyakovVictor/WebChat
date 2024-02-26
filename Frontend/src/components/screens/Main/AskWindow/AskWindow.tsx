@@ -7,9 +7,9 @@ const AskWindow: React.FC<AskWindowProps> = ({ setChooseAction }) => {
   return (
   <div className={styles.window}>
       <div className={styles.content}>
-            <h1>AskWindow</h1>
-            <button className={styles.askBtn}>Connect to chat</button>
-            <button className={styles.askBtn}>Create new chat</button>
+            <h1>Action</h1>
+            <button className={styles.askBtn}>Connect</button>
+            <button className={styles.askBtn}>Create new</button>
       </div>
   </div>
   )
