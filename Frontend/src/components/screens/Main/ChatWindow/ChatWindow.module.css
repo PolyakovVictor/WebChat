@@ -41,13 +41,16 @@ textarea {
 button {
     background-color: rgba(0, 0, 0, 0.5);
     height: auto;
-    border-radius: 0px 10px 10px 0px;
     color: white;
     border: None;
     cursor: pointer;
     transition: 500ms;
     font-size: large;
     min-width: 40px;
+}
+
+.sendBtn {
+    border-radius: 0px 10px 10px 0px;
 }
 
 button:hover {
