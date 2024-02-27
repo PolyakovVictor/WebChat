@@ -39,7 +39,7 @@ const AskWindow: React.FC<AskWindowProps> = ({ setChatId, clientId }) => {
       <div className={styles.content}>
             <h1>Action</h1>
             <form onSubmit={handleSubmit}>
-              <input name="chatId" placeholder="Enter chat ID" />
+              <input type="number" name="chatId" placeholder="Enter chat ID" />
               <button className={styles.askBtn} type="submit">Connect</button>
             </form>
             <button onClick={handleClick} className={styles.askBtn}>Create new</button>

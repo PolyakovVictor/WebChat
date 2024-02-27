@@ -6,6 +6,7 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     height: 35vh;
     width: 35vw;
+    max-width: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,6 +24,7 @@
     transition: 500ms;
     cursor: pointer;
     border: None;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .content {
@@ -43,6 +45,8 @@ form {
 }
 
 input{
+    font-size: 17px;
+    transition: 500ms;
     color: antiquewhite;
     background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -51,12 +55,17 @@ input{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     margin-bottom: 40px;
+    outline: none;
 }
 
 button:hover {
+    box-shadow: rgba(0, 255, 255, 0.24) 0px 3px 8px;
     background-color: rgba(0, 255, 255, 0.9);
 }
 
-input::after {
+input:focus {
+    color: black;
+    border: none !important;
+    box-shadow: rgba(0, 255, 255, 0.24) 0px 3px 8px;
     background-color: rgba(0, 255, 255, 0.9);
 }
