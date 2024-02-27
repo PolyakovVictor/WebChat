@@ -2,7 +2,7 @@ import styles from "./ChatWindow.module.css"
 import { useState, useEffect } from 'react';
 
 
-const ChatWindow: React.FC<ChatWindowProps> = ({ ws }) => {
+const ChatWindow: React.FC<ChatWindowProps> = ({ ws, clientId }) => {
   
   const [messages, setMessages] = useState<Message[]>([]);
   const [messageText, setMessageText] = useState("");

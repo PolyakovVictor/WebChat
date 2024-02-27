@@ -3,10 +3,11 @@ interface Message {
 }
 
 interface AskWindowProps {
-    client_id: number;
-    setChooseAction: (newValue: boolean) => void;
+    clientId: number;
+    setChatId: (newValue: number) => void;
   }
 
 interface ChatWindowProps {
     ws: WebSocket;
+    clientId: number;
 }
