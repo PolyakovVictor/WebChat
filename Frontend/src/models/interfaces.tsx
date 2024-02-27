@@ -10,4 +10,5 @@ interface AskWindowProps {
 interface ChatWindowProps {
     ws: WebSocket;
     clientId: number;
+    chatId: number;
 }

@@ -16,7 +16,7 @@ function MainPage() {
     return (
         <main className={styles.main}>
           <div className={styles.content}>
-            {chatId ? <ChatWindow ws={ws} clientId={clientId} /> : <AskWindow setChatId={setChatId} clientId={clientId}/>}
+            {chatId ? <ChatWindow ws={ws} clientId={clientId} chatId={chatId} /> : <AskWindow setChatId={setChatId} clientId={clientId}/>}
           </div>
         </main>
   )
