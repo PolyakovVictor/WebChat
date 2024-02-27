@@ -6,6 +6,15 @@ import time
 
 app = FastAPI()
 
+chats: dict[int, list[int]] = {}
+
+
+def add_to_chat(chat_id, client_id):
+    if chat_id in client_id:
+        chats[chat_id].append(client_id)
+    else:
+        chats[chat_id] = [client_id]
+
 
 app.add_middleware(CORSMiddleware,
                    allow_origins=["http://localhost:5173"],  # Assuming your React app runs on port 3000
@@ -17,16 +26,12 @@ app.add_middleware(CORSMiddleware,
 
 class ConnectionManager:
     def __init__(self):
-        self.active_connections: dict[int, WebSocket] = {}
-
-    async def create(self, websocket: WebSocket):
-        chat_id = str(int(time.time() * 1000))
-        await websocket.accept()
-        self.active_connections[chat_id] = websocket
-        return chat_id
+        self.active_connections: dict[int, WebSocket] = []
 
     async def connect(self, websocket: WebSocket):
-        print("CREATE NEW WEBSOCKET", 'id:', id)
+        await websocket.accept()
+        self.active_connections.append(websocket)
+        print("ACCEPT NEW WEBSOCKET")
 
     def disconnect(self, websocket: WebSocket):
         print('DISCONNECT USER')
@@ -43,20 +48,21 @@ class ConnectionManager:
 manager = ConnectionManager()
 
 
-@app.websocket("/ws/{chat_id}")
-async def websocket_endpoint(websocket: WebSocket, chat_id):
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)
     try:
         while True:
             data = await websocket.receive_text()
             await manager.send_personal_message(f"You wrote: {data}", websocket)
-            await manager.broadcast(f"Client #{chat_id} says: {data}")
+            await manager.broadcast(f"Client says: {data}")
     except WebSocketDisconnect:
         manager.disconnect(websocket)
-        await manager.broadcast(f"Client #{chat_id} has left the chat")
+        await manager.broadcast("Client has left the chat")
 
 
-@app.get("/create_chat/")
-async def create_chat():
-    chat_id = manager.create()
+@app.get("/create_chat/{client_id}")
+async def create_chat(client_id):
+    chat_id = str(int(time.time() * 1000))
+    add_to_chat(chat_id=chat_id, client_id=client_id)
     return {"chat_id": chat_id}

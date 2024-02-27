@@ -1,12 +1,8 @@
 import styles from "./ChatWindow.module.css"
 import { useState, useEffect } from 'react';
-import { io } from "socket.io-client";
 
 
-const client_id = Date.now();
-const ws = new WebSocket(`ws://localhost:8000/ws/${client_id}`);
-
-const ChatWindow = () => {
+const ChatWindow: React.FC<ChatWindowProps> = ({ ws }) => {
   
   const [messages, setMessages] = useState<Message[]>([]);
   const [messageText, setMessageText] = useState("");
